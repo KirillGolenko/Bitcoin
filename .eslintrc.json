@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "unicorn"
+  ],
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "unicorn/prevent-abbreviations": "off"
+  }
+}
