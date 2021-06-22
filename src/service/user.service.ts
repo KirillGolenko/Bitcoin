@@ -42,7 +42,7 @@ export const registration = async (
       username,
       email,
     });
-    user.save().then((result: any) => res.json({ data: result }));
+    user.save().then((result: IUser) => res.json({ data: result }));
   }
 };
 
@@ -54,7 +54,7 @@ export const userInfo = async (
   let { id } = req.params;
 
   Users.findOne({ _id: id })
-    .then((result: any) => {
+    .then((result: IUser) => {
       res.json({ data: result });
     })
     .catch(() => {
