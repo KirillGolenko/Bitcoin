@@ -12,3 +12,7 @@ export interface IBitcoin {
   price: number;
   updatedAt: string;
 }
+
+export interface IObjectKeys {
+  [key: string]: string | number;
+}
