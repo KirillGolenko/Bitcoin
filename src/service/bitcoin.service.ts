@@ -1,7 +1,7 @@
 import { Bitcoin } from '../mongobd/bitcoin';
 import { Request, Response, NextFunction } from 'express';
 import dotend from 'dotenv';
-import { IUser, IBitcoin } from '../dto/dto';
+import { IUser, IBitcoin } from '../interface/interface';
 import Logger from '../logger';
 dotend.config();
 

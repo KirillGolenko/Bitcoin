@@ -1,21 +1,21 @@
-export class LoggerConstant {
-  static readonly LOG_LEVEL_ERROR = 'error';
-  static readonly LOG_LEVEL_INFO = 'info';
-  static readonly LOG_LEVEL_DEBUG = 'debug';
+export enum LoggerConstant {
+  log_level_error = 'error',
+  log_level_info = 'info',
+  log_level_debug = 'debug',
 }
 
-export class Action {
-  static readonly ACTION_WITHDRAW = 'withdraw';
-  static readonly ACTION_DEPOSIT = 'deposit';
-  static readonly ACTION_SELL = 'sell';
-  static readonly ACTION_BUY = 'buy';
+export enum Action {
+  action_withdraw = 'withdraw',
+  action_deposit = 'deposit',
+  action_sell = 'sell',
+  action_buy = 'buy',
 }
 
-export class Field {
-  static readonly ACTION = 'action';
-  static readonly AMOUNT = 'amount';
-  static readonly PRICE = 'price';
-  static readonly NAME = 'name';
-  static readonly USERNAME = 'username';
-  static readonly EMAIL = 'email';
+export enum Field {
+  action = 'action',
+  amount = 'amount',
+  price = 'price',
+  name = 'name',
+  username = 'username',
+  email = 'email',
 }

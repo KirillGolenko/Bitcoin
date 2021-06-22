@@ -2,20 +2,15 @@ import { body, validationResult } from 'express-validator';
 import { Request, Response, NextFunction } from 'express';
 import { Field } from '../enums';
 import { Users } from '../mongobd/user';
-import { IUser } from '../dto/dto';
+import { IUser } from '../interface/interface';
 
 export const userUpdateValidationRules = () => {
   return [
-    body().custom((req) => {
-      return (req.email || req.username) && Object.keys(req).length <= 1
-        ? Promise.resolve()
-        : Promise.reject('Not found');
-    }),
-    body(Field.USERNAME)
+    body(Field.username)
       .isLength({ min: 6, max: 20 })
       .withMessage('Username must be between 6 and 20 letters long')
       .optional({ nullable: true }),
-    body(Field.EMAIL)
+    body(Field.email)
       .isEmail()
       .optional({ nullable: true })
       .custom((email: string, { req }) => {
@@ -33,20 +28,26 @@ export const userUpdateValidationRules = () => {
 
 export const userValidationRules = () => {
   return [
-    body(Field.NAME).isLength({ min: 5 }).notEmpty(),
-    body(Field.USERNAME).isLength({ min: 5 }).notEmpty(),
-    body(Field.EMAIL).isEmail().notEmpty(),
+    body(Field.name)
+      .isLength({ min: 6, max: 20 })
+      .withMessage('Name must be between 6 and 20 letters long')
+      .notEmpty(),
+    body(Field.username)
+      .isLength({ min: 6, max: 20 })
+      .withMessage('Username must be between 6 and 20 letters long')
+      .notEmpty(),
+    body(Field.email).isEmail().notEmpty(),
   ];
 };
 
 export const bitcoinValidationRules = () => {
-  return [body(Field.PRICE).notEmpty().isInt({ min: 0 })];
+  return [body(Field.price).notEmpty().isFloat({ min: 0 })];
 };
 
 export const updateValidationRules = () => {
   return [
-    body(Field.ACTION).notEmpty(),
-    body(Field.AMOUNT).isInt({ min: 0 }).notEmpty(),
+    body(Field.action).notEmpty(),
+    body(Field.amount).isFloat({ min: 0 }).notEmpty(),
   ];
 };
 
